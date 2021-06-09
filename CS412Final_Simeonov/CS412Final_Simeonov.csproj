@@ -126,8 +126,8 @@
     <Content Include="SignUp.aspx" />
     <Content Include="Contactus.aspx" />
     <Content Include="Navigation.aspx" />
-    <Content Include="WebForm5.aspx" />
-    <Content Include="WebForm6.aspx" />
+    <Content Include="SingleItem.aspx" />
+    <Content Include="Items.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -209,19 +209,19 @@
     <Compile Include="Navigation.aspx.designer.cs">
       <DependentUpon>Navigation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm5.aspx.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="SingleItem.aspx.cs">
+      <DependentUpon>SingleItem.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm5.aspx.designer.cs">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="SingleItem.aspx.designer.cs">
+      <DependentUpon>SingleItem.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm6.aspx.cs">
-      <DependentUpon>WebForm6.aspx</DependentUpon>
+    <Compile Include="Items.aspx.cs">
+      <DependentUpon>Items.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm6.aspx.designer.cs">
-      <DependentUpon>WebForm6.aspx</DependentUpon>
+    <Compile Include="Items.aspx.designer.cs">
+      <DependentUpon>Items.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

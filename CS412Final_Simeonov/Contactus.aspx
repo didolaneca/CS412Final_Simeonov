@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Login.Master" AutoEventWireup="true" CodeBehind="Contactus.aspx.cs" Inherits="CS412Final_Simeonov.WebForm3" %>
+
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -22,7 +23,6 @@
             <%--<div id="formFooter">
                 <a class="underlineHover" href="SignUp.aspx">Not an User? Sign Up!</a>
             </div>--%>
-
         </div>
     </div>
 </asp:Content>
