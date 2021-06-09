@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Public.master.cs" Inherits="CS412Final_Simeonov.Public" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.Master.cs" Inherits="CS412Final_Simeonov.Public" %>
 
 <!DOCTYPE html>
 
@@ -14,9 +14,10 @@
             <nav>
                 <a href="Login.aspx">Login Page</a><br />
                 <a href="SignUp.aspx">SignUp Page</a><br />
+                <a href="Contactus.aspx">Contact Us page</a><br />
                 <br />
             </nav>
-            <p>I am the master page</p>
+            <p>I am the main page</p>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
