@@ -1,28 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Contactus.aspx.cs" Inherits="CS412Final_Simeonov.WebForm3" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
-      <form action="action_page.php">
-        <h1>Contact Us</h1>
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
 
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="Content/Icons/defaultUser.svg" id="icon" alt="User Icon" />
+            </div>
 
-        <label for="country">Country</label>
-        <select id="country" name="country">
-          <option value="australia">Australia</option>
-          <option value="canada">Canada</option>
-          <option value="usa">USA</option>
-        </select>
+            <!-- Login Form -->
+            <form>
+                <input type="text" id="firstname" class="fadeIn second" name="firstname" placeholder="First Name">
+                <input type="text" id="Lastname" class="fadeIn third" name="lastname" placeholder="Last Name">
+                <input type="text" id="Message" class="fadeIn third" name="message" placeholder="Message">
+                <input type="submit" class="fadeIn fourth" value="Submit">
+            </form>
 
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+            <%--<div id="formFooter">
+                <a class="underlineHover" href="SignUp.aspx">Not an User? Sign Up!</a>
+            </div>--%>
 
-        <input type="submit" value="Submit">
-
-      </form>
+        </div>
     </div>
 </asp:Content>

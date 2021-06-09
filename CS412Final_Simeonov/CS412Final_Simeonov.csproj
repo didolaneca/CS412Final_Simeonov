@@ -125,6 +125,7 @@
     <Content Include="Login.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="Contactus.aspx" />
+    <Content Include="Navigation.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -198,6 +199,13 @@
     </Compile>
     <Compile Include="Contactus.aspx.designer.cs">
       <DependentUpon>Contactus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation.aspx.cs">
+      <DependentUpon>Navigation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Navigation.aspx.designer.cs">
+      <DependentUpon>Navigation.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
