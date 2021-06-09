@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CS412Final_Simeonov
 {
-    public partial class _Default : Page
+    public partial class Public : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

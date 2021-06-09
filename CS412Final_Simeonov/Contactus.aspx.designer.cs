@@ -10,7 +10,7 @@
 
 namespace CS412Final_Simeonov
 {
-    public partial class _Default
+    public partial class WebForm3
     {
     }
 }

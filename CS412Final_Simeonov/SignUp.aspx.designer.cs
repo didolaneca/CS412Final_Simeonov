@@ -10,7 +10,7 @@
 
 namespace CS412Final_Simeonov
 {
-    public partial class About
+    public partial class WebForm2
     {
     }
 }
