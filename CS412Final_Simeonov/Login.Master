@@ -6,11 +6,12 @@
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
+        <link href="Content/Site.css" rel="stylesheet" />
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <%-- <div>
             <div class="container">
                 <label for="username"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="username" required>
@@ -20,16 +21,17 @@
 
                 <button type="submit">Login</button>
                 <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                    <input type="checkbox" checked="checked" name="remember">
+                    Remember me
                 </label>
             </div>
-            <div class="container" style="background-color:#f1f1f1">
+            <div class="container" style="background-color: #f1f1f1">
                 <button type="button" class="cancelbtn">Cancel</button>
                 <span class="psw">Forgot <a href="#">password?</a></span>
             </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-        </div>
+        </div>--%>
     </form>
 </body>
 </html>
