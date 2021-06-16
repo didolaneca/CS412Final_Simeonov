@@ -11,7 +11,7 @@ namespace CS412Final_Simeonov
 {
 
 
-    public partial class Public
+    public partial class Site1
     {
 
         /// <summary>
