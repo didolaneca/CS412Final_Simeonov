@@ -224,6 +224,7 @@
     <Compile Include="Items.aspx.designer.cs">
       <DependentUpon>Items.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Validation\UserValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

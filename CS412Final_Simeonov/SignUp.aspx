@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Login.Master" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="CS412Final_Simeonov.WebForm2" %>
+﻿<%@ Page EnableEventValidation="false" Title="" Language="C#" MasterPageFile="~/Login.Master" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="CS412Final_Simeonov.WebForm2" %>
 
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <%--<link href="Content/Site.css" rel="stylesheet" />
@@ -12,7 +12,9 @@
             <div class="fadeIn first">
                 <img src="Content/Icons/defaultUser.svg" id="icon" alt="User Icon" />
             </div>
-
+            <script>
+                    
+            </script>
             <!-- Login Form -->
             <form>
                 <asp:TextBox ID="firstName" runat="server" CssClass="fadeIn second" name="firstName" placeholder="First name"></asp:TextBox>
@@ -31,7 +33,9 @@
                 <asp:HyperLink ID="HyperLink1" runat="server" CssClass="underlineHover" href="Login.aspx">Already an User? Log In!</asp:HyperLink>
                 <%--<a class="underlineHover" href="Login.aspx">Already an User? Log In!</a>--%>
             </div>
-
+            <asp:Panel ID="signUpErrors" runat="server" Visible="false">
+                <asp:Label ID="errorsList" runat="server" Text="Label" CssClass="authErrors"></asp:Label>
+            </asp:Panel>
         </div>
     </div>
 </asp:Content>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Login.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CS412Final_Simeonov.WebForm1" %>
+﻿<%@ Page EnableEventValidation="false" Title="" Language="C#" MasterPageFile="~/Login.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CS412Final_Simeonov.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <link href="Content/Site.css" rel="stylesheet" />
@@ -20,7 +20,7 @@
 
             <!-- Login Form -->
             <form>
-                <asp:TextBox ID="login" runat="server" CssClass="fadeIn second" name="login" placeholder="Username"></asp:TextBox>
+                <asp:TextBox ID="username" runat="server" CssClass="fadeIn second" name="username" placeholder="Username"></asp:TextBox>
                 <asp:TextBox ID="password" runat="server" CssClass="fadeIn third" name="password" placeholder="Password"></asp:TextBox>
                 <%--<input type="text" id="login" class="fadeIn second" name="login" placeholder="login">--%>
 
@@ -32,6 +32,9 @@
             <div id="formFooter">
                 <asp:HyperLink ID="HyperLink1" runat="server" CssClass="underlineHover" href="SignUp.aspx">Not an User? Sign Up!</asp:HyperLink>
             </div>
+            <asp:Panel ID="signUpErrors" runat="server" Visible="false">
+                <asp:Label ID="errorsList" runat="server" Text="Label" CssClass="authErrors"></asp:Label>
+            </asp:Panel>
 
         </div>
     </div>
