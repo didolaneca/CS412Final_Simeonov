@@ -11,7 +11,14 @@ namespace CS412Final_Simeonov
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void submitButton_LoginClick(object sender, EventArgs e)
+        {
+            if (true) {
+                Response.Write("Hello from login");
+            }
         }
     }
 }
