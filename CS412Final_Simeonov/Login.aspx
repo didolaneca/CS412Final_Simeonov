@@ -20,8 +20,8 @@
 
             <!-- Login Form -->
             <form>
-                <asp:TextBox ID="login" runat="server" CssClass="fadeIn second" name="login" placeholder="login"></asp:TextBox>
-                <asp:TextBox ID="password" runat="server" CssClass="fadeIn third" name="password" placeholder="password"></asp:TextBox>
+                <asp:TextBox ID="login" runat="server" CssClass="fadeIn second" name="login" placeholder="Username"></asp:TextBox>
+                <asp:TextBox ID="password" runat="server" CssClass="fadeIn third" name="password" placeholder="Password"></asp:TextBox>
                 <%--<input type="text" id="login" class="fadeIn second" name="login" placeholder="login">--%>
 
                 <%--<input type="text" id="password" class="fadeIn third" name="login" placeholder="password">--%>

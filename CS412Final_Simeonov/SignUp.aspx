@@ -15,6 +15,8 @@
 
             <!-- Login Form -->
             <form>
+                <asp:TextBox ID="firstName" runat="server" CssClass="fadeIn second" name="firstName" placeholder="First name"></asp:TextBox>
+                <asp:TextBox ID="LastName" runat="server" CssClass="fadeIn second" name="lastName" placeholder="Last name"></asp:TextBox>
                 <asp:TextBox ID="email" runat="server" CssClass="fadeIn second" name="email" placeholder="email"></asp:TextBox>
                 <%--<input type="text" id="email" class="fadeIn second" placeholder="Enter Email" name="email" required>--%>
                 <asp:TextBox ID="username" runat="server" CssClass="fadeIn third" name="username" placeholder="username"></asp:TextBox>

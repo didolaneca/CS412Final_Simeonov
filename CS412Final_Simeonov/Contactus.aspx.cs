@@ -13,5 +13,13 @@ namespace CS412Final_Simeonov
         {
 
         }
+
+        protected void submitButton_ContactUsClick(object sender, EventArgs e)
+        {
+            if (true)
+            {
+                Response.Write("Hello from Contact us page");
+            }
+        }
     }
 }
