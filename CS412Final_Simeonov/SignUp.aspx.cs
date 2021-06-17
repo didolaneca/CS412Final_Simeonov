@@ -66,6 +66,7 @@ namespace CS412Final_Simeonov
                 Username = username.Text,
                 Password = password.Text
             };
+            //
 
             Response.Redirect("Login.aspx");
 
@@ -74,5 +75,6 @@ namespace CS412Final_Simeonov
                 Response.Write("Hello from Sign Up");
             }
         }
+
     }
 }
