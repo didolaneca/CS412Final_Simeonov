@@ -147,3 +147,7 @@ input[type=text] {
 .topnav-right {
     float: right;
 }
+
+.authErrors {
+    color: red;
+}

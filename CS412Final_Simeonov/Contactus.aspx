@@ -14,10 +14,15 @@
 
             <!-- Login Form -->
             <form>
-                <input type="text" id="firstname" class="fadeIn second" name="firstname" placeholder="First Name">
-                <input type="text" id="Lastname" class="fadeIn third" name="lastname" placeholder="Last Name">
-                <input type="text" id="Message" class="fadeIn third" name="message" placeholder="Message">
-                <input type="submit" class="fadeIn fourth" value="Submit">
+                <asp:TextBox ID="firstname" runat="server" CssClass="fadeIn first" name="firstName" placeholder="First name"></asp:TextBox>
+                <asp:TextBox ID="lastName" runat="server" CssClass="fadeIn second" name="lastName" placeholder="Last name"></asp:TextBox>
+                <asp:TextBox ID="email" runat="server" CssClass="fadeIn third" name="email" placeholder="email"></asp:TextBox>
+                <%--<input type="text" id="firstname" class="fadeIn second" name="firstname" placeholder="First Name">
+                <input type="text" id="Lastname" class="fadeIn third" name="lastname" placeholder="Last Name">--%>
+                <asp:TextBox ID="message" runat="server" CssClass="fadeIn third" name="message" placeholder="Message"></asp:TextBox>
+                <%--<input type="text" id="Message" class="fadeIn third" name="message" placeholder="Message">--%>
+                <asp:Button ID="submitButton" runat="server" CssClass="fadeIn fourth" Text="Submit" OnClick="submitButton_ContactUsClick"/>
+                <%--<input type="submit" class="fadeIn fourth" value="Submit">--%>
             </form>
 
             <%--<div id="formFooter">
