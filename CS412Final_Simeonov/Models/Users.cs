@@ -62,7 +62,7 @@ namespace CS412Final_Simeonov.Models
         //};
 
         public Users() { 
-            this.listOfAllUsers = new List<User>();
+            listOfAllUsers = new List<User>();
             User batman = new User()
             {
                 FirstName = "Bruce",
