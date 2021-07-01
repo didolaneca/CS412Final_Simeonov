@@ -188,6 +188,9 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Repository\OrderRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Repository\ItemRepository.cs" />
     <Compile Include="Repository\Interfaces\IItemRepository.cs" />
     <Compile Include="Repository\Interfaces\IUserRepository.cs" />
     <Compile Include="Repository\Interfaces\IOrderRepository.cs" />
@@ -237,6 +240,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="BLL\Interfaces\" />
     <Folder Include="Content\Icons\" />
   </ItemGroup>
   <ItemGroup>

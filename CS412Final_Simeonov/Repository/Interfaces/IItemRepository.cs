@@ -6,9 +6,9 @@ using System.Web;
 
 namespace CS412Final_Simeonov.Repository.Interfaces
 {
-    interface IItemRepository
+    public interface IItemRepository
     {
-        Boolean saveItem(Item item);
+       void saveItem(Item item);
 
         Item findItemById(long id);
 
