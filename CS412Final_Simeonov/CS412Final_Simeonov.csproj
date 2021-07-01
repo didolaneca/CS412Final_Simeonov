@@ -188,6 +188,9 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Repository\Interfaces\IItemRepository.cs" />
+    <Compile Include="Repository\Interfaces\IUserRepository.cs" />
+    <Compile Include="Repository\Interfaces\IOrderRepository.cs" />
     <Compile Include="SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,7 +238,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Icons\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
