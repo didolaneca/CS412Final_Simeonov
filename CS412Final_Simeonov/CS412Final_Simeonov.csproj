@@ -163,9 +163,15 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="DAL\OrderDAL.cs" />
+    <Compile Include="DAL\ItemDAL.cs" />
+    <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -183,6 +189,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Repository\OrderRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Repository\ItemRepository.cs" />
+    <Compile Include="Repository\Interfaces\IItemRepository.cs" />
+    <Compile Include="Repository\Interfaces\IUserRepository.cs" />
+    <Compile Include="Repository\Interfaces\IOrderRepository.cs" />
     <Compile Include="SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -229,7 +241,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="BLL\Interfaces\" />
     <Folder Include="Content\Icons\" />
+    <Folder Include="SQL\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
