@@ -12,6 +12,6 @@ namespace CS412Final_Simeonov.Repository.Interfaces
         List<Order> getAllOrdersForUser(User user);
         Boolean saveOrder(Order order);
 
-        Boolean addItemToOrder(Item item);
+        Boolean addItemToOrder(Item item, Order order);
     }
 }

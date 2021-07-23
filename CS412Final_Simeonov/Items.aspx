@@ -35,8 +35,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-sm" align="center">
                 One of three columns
                 <div class="card" style="width: 18rem;">

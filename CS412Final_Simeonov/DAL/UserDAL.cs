@@ -33,8 +33,10 @@ namespace CS412Final_Simeonov.DAL
 
         //Update??? we can use the  saveuser to update?
         public static User UpdateUser(User user)
-        {
-            return new User();
+        {//Some testing need it
+            var index = allUsers.FindIndex(x => x.Id == user.Id);
+            allUsers[index] = user;
+            return user;
         }
     }
 }

@@ -35,9 +35,14 @@ namespace CS412Final_Simeonov.DAL
         }
 
         //ADD
-        public static void addNewItem(Order order)
+        public static void addNewOrder(Order order)
         {
             allOrders.Add(order);
+        }
+
+        public static List<Order> GetAllOrders(long userId) {
+            //bug has be refactored orderId != userId
+            return allOrders.Where(order => order.Id == userId).ToList<Order>();
         }
 
         //Update???

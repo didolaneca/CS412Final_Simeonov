@@ -10,19 +10,26 @@ namespace CS412Final_Simeonov.Repository
 {
     public class OrderRepository : IOrderRepository
     {
-        public bool addItemToOrder(Item item)
+        public bool addNewOrder(Order order)
         {
-            return OrderDAL.
+            OrderDAL.addNewOrder(order);
+            return true;
         }
 
         public List<Order> getAllOrdersForUser(User user)
         {
-            Or
+            return OrderDAL.GetAllOrders(user.Id);
         }
 
         public bool saveOrder(Order order)
         {
             throw new NotImplementedException();
+        }
+
+        public Boolean addItemToOrder(Item item, Order order) {
+
+            order.Items.Add(item);
+            return true;
         }
     }
 }
