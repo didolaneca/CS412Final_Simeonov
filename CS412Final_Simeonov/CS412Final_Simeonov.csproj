@@ -231,6 +231,8 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Repository\Error.cs" />
+    <Compile Include="Repository\Interfaces\IError.cs" />
     <Compile Include="Repository\OrderRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\ItemRepository.cs" />
