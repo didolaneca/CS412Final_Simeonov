@@ -82,7 +82,40 @@ namespace CS412Final_Simeonov.DAL
         //ADD
         public static void SaveUser(User user)
         {
-            allUsers.Add(user);
+            string sql = @"INSERT INTO User (first_name, last_name, email, username, phone_number, password, address) 
+                            VALUES
+                            (first_name, @last_name, @email, @username, @phone_number, @Password, @AddressId);
+                            SELECT LAST_INSERT_ID();";
+            using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    try
+                    {
+                        cmd.Connection.Open();
+                        cmd.Parameters.AddWithValue("@first_name", user.FirstName);
+                        cmd.Parameters.AddWithValue("@last_name", user.LastName);
+                        cmd.Parameters.AddWithValue("@email", user.Email);
+                        cmd.Parameters.AddWithValue("@username", user.Username);
+                        cmd.Parameters.AddWithValue("@phone_number", user.PhoneNumber);
+                        cmd.Parameters.AddWithValue("@Password", user.Password);
+                        cmd.Parameters.AddWithValue("@address", user.Address.UserId);
+
+                        string o = cmd.ExecuteScalar().ToString();
+                        long id = 0;
+                        long.TryParse(o, out id);
+                        user.Id = id;
+                    }
+                    catch (Exception ex)
+                    {
+                        error.Log(ex);
+                    }
+                }
+            }
+            //error.Log("Success");
+
+
+            //allUsers.Add(user);
         }
 
         //Update??? we can use the  saveuser to update?
