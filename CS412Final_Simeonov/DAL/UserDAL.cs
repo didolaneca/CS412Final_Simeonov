@@ -84,8 +84,7 @@ namespace CS412Final_Simeonov.DAL
         {
             string sql = @"INSERT INTO User (first_name, last_name, email, username, phone_number, password, address) 
                             VALUES
-                            (first_name, @last_name, @email, @username, @phone_number, @Password, @AddressId);
-                            SELECT LAST_INSERT_ID();";
+                            (@first_name, @last_name, @email, @username, @phone_number, @Password, @AddressId);";
             using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
             {
                 using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -101,10 +100,7 @@ namespace CS412Final_Simeonov.DAL
                         cmd.Parameters.AddWithValue("@Password", user.Password);
                         cmd.Parameters.AddWithValue("@address", user.Address.UserId);
 
-                        string o = cmd.ExecuteScalar().ToString();
-                        long id = 0;
-                        long.TryParse(o, out id);
-                        user.Id = id;
+                        cmd.ExecuteNonQuery();
                     }
                     catch (Exception ex)
                     {
@@ -116,6 +112,40 @@ namespace CS412Final_Simeonov.DAL
 
 
             //allUsers.Add(user);
+        }
+
+
+        public static void SaveAddress(Address address)
+        {
+
+            //INSERT INTO `cs412`.`Address` (`Id`, `User_id`, `Street`, `City`, `State`, `Postal_code`, `Country`)
+            //VALUES(NULL, 3, "Odin Palaca", "Asgard", "Asgard", "55544", "Asgard");
+            string sql = @"INSERT INTO `cs412`.`Address` (`Id`, `User_id`, `Street`, `City`, `State`, `Postal_code`, `Country`) 
+                            VALUES
+                            (NULL, @User_Id, @Street, @City, @State, @Postal_code, @Country);";
+            using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    try
+                    {
+                        cmd.Connection.Open();
+                        cmd.Parameters.AddWithValue("@User_Id", address.UserId);
+                        cmd.Parameters.AddWithValue("@Street", address.Street);
+                        cmd.Parameters.AddWithValue("@City", address.City);
+                        cmd.Parameters.AddWithValue("@State", address.State);
+                        cmd.Parameters.AddWithValue("@Postal_code", address.PostalCode);
+                        cmd.Parameters.AddWithValue("@Country", address.Country);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        error.Log(ex);
+                        
+                    }
+                }
+            }
         }
 
         //Update??? we can use the  saveuser to update?
