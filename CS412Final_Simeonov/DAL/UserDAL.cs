@@ -17,7 +17,8 @@ namespace CS412Final_Simeonov.DAL
         private readonly static IError error = new Error();
 
         //READ
-        public static User GetUser(string email, string password) {
+        public static User GetUser(string email, string password)
+        {
             User user = null;
             string sqlQuery = @"SELECT * FROM `cs412`.`User` AS u, `cs412`.`address` AS a WHERE u.email = @email and u.password = @password and u.id = a.User_id;";
             using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
@@ -52,7 +53,7 @@ namespace CS412Final_Simeonov.DAL
                                             PostalCode = reader.GetNullString("Postal_code"),
                                             City = reader.GetNullString("City"),
                                             State = reader.GetNullString("State"),
-                                            
+
                                         }
                                     };
                                 }
@@ -70,13 +71,13 @@ namespace CS412Final_Simeonov.DAL
             //    return usr.Email.Equals(email) && usr.Password.Equals(password);
             //});
         }
-        
+
         //DELETE - I don't think we should give ability to the user to delete their account
         public static Boolean DeleteUser(string email, string password)
         {
 
             User userToBeRemoved = GetUser(email, password);
-            return allUsers.Remove(userToBeRemoved); 
+            return allUsers.Remove(userToBeRemoved);
         }
 
         //ADD
@@ -98,6 +99,7 @@ namespace CS412Final_Simeonov.DAL
                         cmd.Parameters.AddWithValue("@username", user.Username);
                         cmd.Parameters.AddWithValue("@phone_number", user.PhoneNumber);
                         cmd.Parameters.AddWithValue("@Password", user.Password);
+                        //Breaking here????
                         cmd.Parameters.AddWithValue("@address", user.Address.UserId);
 
                         cmd.ExecuteNonQuery();
@@ -142,7 +144,7 @@ namespace CS412Final_Simeonov.DAL
                     catch (Exception ex)
                     {
                         error.Log(ex);
-                        
+
                     }
                 }
             }
@@ -154,6 +156,38 @@ namespace CS412Final_Simeonov.DAL
             var index = allUsers.FindIndex(x => x.Id == user.Id);
             allUsers[index] = user;
             return user;
+        }
+
+        public static long LastUserId()
+        {
+            string sql = @"SELECT MAX(id) FROM `cs412`.`User`;";
+            long lastUserId = 0;
+            using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    try
+                    {
+                        cmd.Connection.Open();
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                if (reader.Read())
+                                {
+                                    lastUserId = reader.GetInt64("MAX(id)");
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        error.Log(ex);
+                        return 0;
+                    }
+                }
+            }
+            return lastUserId;
         }
     }
 }
