@@ -42,6 +42,15 @@ namespace CS412Final_Simeonov
         protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
+        /// phone_number control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox phone_number;
+
+        /// <summary>
         /// username control.
         /// </summary>
         /// <remarks>
@@ -105,13 +114,13 @@ namespace CS412Final_Simeonov
         protected global::System.Web.UI.WebControls.TextBox country;
 
         /// <summary>
-        /// submitButton control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submitButton;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
         /// HyperLink1 control.

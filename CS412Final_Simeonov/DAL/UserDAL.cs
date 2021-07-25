@@ -83,9 +83,7 @@ namespace CS412Final_Simeonov.DAL
         //ADD
         public static void SaveUser(User user)
         {
-            string sql = @"INSERT INTO User (first_name, last_name, email, username, phone_number, password, address) 
-                            VALUES
-                            (@first_name, @last_name, @email, @username, @phone_number, @Password, @AddressId);";
+            string sql = @"INSERT INTO `cs412`.`User` (`id`, `first_name`, `last_name`, `email`, `username`, `password`, `phone_number`, `create_time`, `orders`, `address`) VALUES (NULL, @first_name, @last_name, @email, @username, @Password, @phone_number, CURRENT_TIMESTAMP, NULL, @address);";
             using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
             {
                 using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -99,13 +97,14 @@ namespace CS412Final_Simeonov.DAL
                         cmd.Parameters.AddWithValue("@username", user.Username);
                         cmd.Parameters.AddWithValue("@phone_number", user.PhoneNumber);
                         cmd.Parameters.AddWithValue("@Password", user.Password);
-                        //Breaking here????
                         cmd.Parameters.AddWithValue("@address", user.Address.UserId);
-
+                        //Breaking here????
                         cmd.ExecuteNonQuery();
+                        SaveAddress(user.Address);
                     }
                     catch (Exception ex)
                     {
+                        Console.WriteLine(ex.Message);
                         error.Log(ex);
                     }
                 }

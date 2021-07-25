@@ -23,6 +23,7 @@ namespace CS412Final_Simeonov
                     frstName = firstName.Text,
                     lstName = LastName.Text,
                     eMail = email.Text,
+                    phoneNbr = phone_number.Text,
                     sTreet = street.Text,
                     cIty = city.Text,
                     sTate = state.Text,
@@ -95,6 +96,7 @@ namespace CS412Final_Simeonov
                 FirstName = frstName,
                 LastName = lstName,
                 Email = eMail,
+                PhoneNumber = phoneNbr,
                 Username = usrname,
                 Password = passwrd,
                 Address = new Address() {
