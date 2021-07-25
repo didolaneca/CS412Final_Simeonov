@@ -109,10 +109,6 @@ namespace CS412Final_Simeonov.DAL
                     }
                 }
             }
-            //error.Log("Success");
-
-
-            //allUsers.Add(user);
         }
 
 
@@ -150,10 +146,50 @@ namespace CS412Final_Simeonov.DAL
         }
 
         //Update??? we can use the  saveuser to update?
+        //This method expects already modified user object with the new user info so before calling this method
+        // we have to fetch the original user object from DB modify the fields need it then call this method
         public static User UpdateUser(User user)
         {//Some testing need it
-            var index = allUsers.FindIndex(x => x.Id == user.Id);
-            allUsers[index] = user;
+            //@"SELECT * FROM `cs412`.`User` AS u, `cs412`.`address` AS a WHERE u.email = @email and u.password = @password and u.id = a.User_id;";
+            string sqlQuery = @"UPDATE `cs412`.`User` SET first_name = @first_name, last_name = @last_name, email = @email,
+                                username = @username, password = @Password, phone_number = @phone_number, 
+                                create_time = CURRENT_TIMESTAMP WHERE Id = @user_id;";
+            using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sqlQuery, connection))
+                {
+                    try
+                    {
+                        try
+                        {
+                            cmd.Connection.Open();
+                            cmd.Parameters.AddWithValue("@user_id", user.Id);
+                            cmd.Parameters.AddWithValue("@first_name", user.FirstName);
+                            cmd.Parameters.AddWithValue("@last_name", user.LastName);
+                            cmd.Parameters.AddWithValue("@email", user.Email);
+                            cmd.Parameters.AddWithValue("@username", user.Username);
+                            cmd.Parameters.AddWithValue("@phone_number", user.PhoneNumber);
+                            cmd.Parameters.AddWithValue("@Password", user.Password);
+                            cmd.Parameters.AddWithValue("@address", user.Address.UserId);
+                            cmd.ExecuteNonQuery();
+                            SaveAddress(user.Address);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                            error.Log(ex);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        error.Log(ex);
+                    }
+                }
+
+                //var index = allUsers.FindIndex(x => x.Id == user.Id);
+                //allUsers[index] = user;
+                //return user;
+            }
             return user;
         }
 
