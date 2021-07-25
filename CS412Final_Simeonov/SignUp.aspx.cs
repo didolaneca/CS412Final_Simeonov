@@ -1,4 +1,5 @@
-﻿using CS412Final_Simeonov.Models;
+﻿using CS412Final_Simeonov.DAL;
+using CS412Final_Simeonov.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,26 @@ namespace CS412Final_Simeonov
                     passwrd = password.Text,
                     frstName = firstName.Text,
                     lstName = LastName.Text,
-                    eMail = email.Text
+                    eMail = email.Text,
+                    sTreet = street.Text,
+                    cIty = city.Text,
+                    sTate = state.Text,
+                    pOstalCode = postalCode.Text,
+                    cOuntry = country.Text
+
                 ;
             List<String> errors = new List<string>();
             signUpErrors.Visible = false;
+
+            if (string.IsNullOrWhiteSpace(usrname))
+            {
+                errors.Add("Username can not be empty");
+            }
+
+            if (string.IsNullOrWhiteSpace(passwrd))
+            {
+                errors.Add("Password can not be empty");
+            }
 
             if (string.IsNullOrWhiteSpace(frstName))
             {
@@ -41,14 +58,29 @@ namespace CS412Final_Simeonov
                 errors.Add("Email name can not be empty");
             }
 
-            if (string.IsNullOrWhiteSpace(usrname))
+            if (string.IsNullOrWhiteSpace(sTreet))
             {
-                errors.Add("Username can not be empty");
+                errors.Add("Street can not be empty");
             }
 
-            if (string.IsNullOrWhiteSpace(passwrd))
+            if (string.IsNullOrWhiteSpace(cIty))
             {
-                errors.Add("Password can not be empty");
+                errors.Add("City can not be empty");
+            }
+
+            if (string.IsNullOrWhiteSpace(sTate))
+            {
+                errors.Add("State can not be empty");
+            }
+
+            if (string.IsNullOrWhiteSpace(pOstalCode))
+            {
+                errors.Add("Postal code can not be empty");
+            }
+            
+            if (string.IsNullOrWhiteSpace(cOuntry))
+            {
+                errors.Add("Country can not be empty");
             }
 
             if (errors.Count > 0)
@@ -60,13 +92,24 @@ namespace CS412Final_Simeonov
 
             User user = new User()
             {
-                FirstName = firstName.Text,
-                LastName = LastName.Text,
-                Email = email.Text,
-                Username = username.Text,
-                Password = password.Text
+                FirstName = frstName,
+                LastName = lstName,
+                Email = eMail,
+                Username = usrname,
+                Password = passwrd,
+                Address = new Address() {
+                    //Confirm if this is the best way to do it???
+                    UserId = UserDAL.LastUserId() + 1,
+                    Street = sTreet,
+                    City = cIty,
+                    State = sTate,
+                    PostalCode = pOstalCode,
+                    Country = cOuntry
+
+                }
             };
-            //
+            //Calling the DAL and registering the new user
+            UserDAL.SaveUser(user);
 
             Response.Redirect("Login.aspx");
 
