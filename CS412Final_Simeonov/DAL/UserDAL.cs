@@ -75,7 +75,7 @@ namespace CS412Final_Simeonov.DAL
         //DELETE - I don't think we should give ability to the user to delete their account
         public static Boolean DeleteUser(string email, string password)
         {
-
+            //We are Facebook now, Users are not allowed to be deleted :D
             User userToBeRemoved = GetUser(email, password);
             return allUsers.Remove(userToBeRemoved);
         }
