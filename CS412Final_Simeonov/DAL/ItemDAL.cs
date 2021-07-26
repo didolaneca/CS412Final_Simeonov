@@ -101,10 +101,30 @@ namespace CS412Final_Simeonov.DAL
             return allItems;
         }
 
-        //public static Boolean removeItem(long id)
-        //{
-        //    return allItems.Remove(GetItemById(id));
-        //}
+        public static Boolean removeItem(Item item)
+        {
+            string sql = "DELETE FROM `cs412`.`Item` WHERE Id = @id;";
+            using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    try
+                    {
+                        cmd.Connection.Open();
+                        cmd.Parameters.AddWithValue("@id", item.Id);
+                        cmd.ExecuteNonQuery();
+                        return true;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        error.Log(ex);
+                        return false;
+                    }
+                }
+            }
+        }
 
         //ADD - Completed
         public static void addNewItem(Item item)
