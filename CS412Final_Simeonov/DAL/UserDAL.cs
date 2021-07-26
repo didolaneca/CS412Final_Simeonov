@@ -150,7 +150,6 @@ namespace CS412Final_Simeonov.DAL
         // we have to fetch the original user object from DB modify the fields need it then call this method
         public static User UpdateUser(User user)
         {//Some testing need it
-            //@"SELECT * FROM `cs412`.`User` AS u, `cs412`.`address` AS a WHERE u.email = @email and u.password = @password and u.id = a.User_id;";
             string sqlQuery = @"UPDATE `cs412`.`User` SET first_name = @first_name, last_name = @last_name, email = @email,
                                 username = @username, password = @Password, phone_number = @phone_number, 
                                 create_time = CURRENT_TIMESTAMP WHERE Id = @user_id;";
