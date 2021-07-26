@@ -3,16 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MySql.Data.MySqlClient;
+using System.Web.Configuration;
+using CS412Final_Simeonov.Helpers;
+using CS412Final_Simeonov.Repository.Interfaces;
+using CS412Final_Simeonov.Repository;
 
 namespace CS412Final_Simeonov.DAL
 {
     public class ItemDAL
     {
         static List<Item> allItems;
+        private readonly static IError error = new Error();
         public ItemDAL() {
             allItems = new List<Item>();
-            //Item mac = new Item();
-            //mac.Id.set(1); = 1;
 
             allItems.Add(new Item() { 
                 Id = 1,
@@ -27,7 +31,44 @@ namespace CS412Final_Simeonov.DAL
         //READ
         public static Item GetItemById(long id)
         {
-            return allItems.Find(item => item.Id == id);
+            Item item;
+            string sqlQuery = @"SELECT * FROM `cs412`.`Item` where Id = @id;";
+            using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sqlQuery, connection))
+                {
+                    try
+                    {
+                        cmd.Connection.Open();
+                        cmd.Parameters.AddWithValue("@id", id);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                if (reader.Read())
+                                {
+                                    item = new Item()
+                                    {
+                                        Id = reader.GetInt64("Id"),
+                                        Name = reader.GetNullString("name"),
+                                        Desciption = reader.GetNullString("Description"),
+                                        Count = reader.GetInt64("Count"),
+                                        Price = reader.GetDouble("Price")
+                                    };
+                                    return item;
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        error.Log(ex);
+                    }
+                }
+            }
+
+
+            return new Item();
         }
 
         //DELETE - I don't think we should give ability to the user to delete their account
