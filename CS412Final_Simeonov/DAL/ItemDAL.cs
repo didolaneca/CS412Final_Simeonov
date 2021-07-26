@@ -80,7 +80,32 @@ namespace CS412Final_Simeonov.DAL
         //ADD
         public static void addNewItem(Item item)
         {
-            allItems.Add(item);
+            //INSERT INTO `cs412`.`Item` (`Id`, `Name`, `Description`, `Count`, `Price`) VALUES (NULL, 'Air Pods Pro', 'Air Pods Pro with charging case', 25, 229.99);
+
+            string sql = @"INSERT INTO `cs412`.`Item` (`Id`, `Name`, `Description`, `Count`, `Price`) 
+                            VALUES (NULL, @name, @desciption, @count, @price);";
+            using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    try
+                    {
+                        cmd.Connection.Open();
+                        cmd.Parameters.AddWithValue("@name", item.Name);
+                        cmd.Parameters.AddWithValue("@description", item.Desciption);
+                        cmd.Parameters.AddWithValue("@count", item.Count);
+                        cmd.Parameters.AddWithValue("@price", item.Price);
+                        
+                        cmd.ExecuteNonQuery();
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        error.Log(ex);
+                    }
+                }
+            }
         }
 
         //Update???
