@@ -17,10 +17,10 @@ namespace CS412Final_Simeonov.DAL
         private readonly static IError error = new Error();
 
         //READ
-        public static User GetUser(string email, string password)
+        public static User GetUser(string username, string password)
         {
             User user = null;
-            string sqlQuery = @"SELECT * FROM `cs412`.`User` AS u, `cs412`.`address` AS a WHERE u.email = @email and u.password = @password and u.id = a.User_id;";
+            string sqlQuery = @"SELECT * FROM `cs412`.`User` AS u, `cs412`.`address` AS a WHERE u.username = @username and u.password = @password and u.id = a.User_id;";
             using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
             {
                 using (MySqlCommand cmd = new MySqlCommand(sqlQuery, connection))
@@ -28,7 +28,7 @@ namespace CS412Final_Simeonov.DAL
                     try
                     {
                         cmd.Connection.Open();
-                        cmd.Parameters.AddWithValue("@email", email);
+                        cmd.Parameters.AddWithValue("@username", username);
                         cmd.Parameters.AddWithValue("@password", password);
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -73,10 +73,10 @@ namespace CS412Final_Simeonov.DAL
         }
 
         //DELETE - I don't think we should give ability to the user to delete their account
-        public static Boolean DeleteUser(string email, string password)
+        public static Boolean DeleteUser(string username, string password)
         {
             //We are Facebook now, Users are not allowed to be deleted :D
-            User userToBeRemoved = GetUser(email, password);
+            User userToBeRemoved = GetUser(username, password);
             return allUsers.Remove(userToBeRemoved);
         }
 
