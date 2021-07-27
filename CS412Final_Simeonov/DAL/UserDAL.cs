@@ -97,8 +97,8 @@ namespace CS412Final_Simeonov.DAL
                         cmd.Parameters.AddWithValue("@username", user.Username);
                         cmd.Parameters.AddWithValue("@phone_number", user.PhoneNumber);
                         cmd.Parameters.AddWithValue("@Password", user.Password);
+                        //fix this after fetching 
                         cmd.Parameters.AddWithValue("@address", user.Address.UserId);
-                        //Breaking here????
                         cmd.ExecuteNonQuery();
                         SaveAddress(user.Address);
                     }
