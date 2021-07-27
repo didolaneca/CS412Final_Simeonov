@@ -212,6 +212,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\Interfaces\INotificationsBLL.cs" />
     <Compile Include="DAL\OrderDAL.cs" />
     <Compile Include="DAL\ItemDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
@@ -293,7 +294,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="BLL\Interfaces\" />
     <Folder Include="Content\Icons\" />
     <Folder Include="SQL\" />
   </ItemGroup>
