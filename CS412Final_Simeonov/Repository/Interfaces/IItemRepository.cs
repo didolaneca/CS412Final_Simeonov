@@ -12,6 +12,6 @@ namespace CS412Final_Simeonov.Repository.Interfaces
 
         Item findItemById(long id);
 
-        Boolean removeItem(long id);
+        Boolean removeItem(Item item);
     }
 }

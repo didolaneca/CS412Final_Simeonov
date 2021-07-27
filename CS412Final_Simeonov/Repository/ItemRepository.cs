@@ -15,9 +15,9 @@ namespace CS412Final_Simeonov.Repository
             return ItemDAL.GetItemById(id);
         }
 
-        public Boolean removeItem(long id)
+        public Boolean removeItem(Item item)
         {
-            return ItemDAL.removeItem(id);
+            return ItemDAL.removeItem(item);
         }
 
         public void saveItem(Item item)
