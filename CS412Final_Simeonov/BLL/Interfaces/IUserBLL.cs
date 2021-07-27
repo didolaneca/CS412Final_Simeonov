@@ -9,7 +9,7 @@ namespace CS412Final_Simeonov.BLL.Interfaces
 {
     public interface IUserBLL
     {
-        User FindUserByEmailAndPassword(string email, string password);
+        User GetUserByUsernameAndPassword(string username, string password);
         User SaveUser(User user);
     }
 }
