@@ -219,6 +219,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\ItemBLL.cs" />
+    <Compile Include="BLL\Interfaces\IItemBLL.cs" />
     <Compile Include="BLL\UserBLL.cs" />
     <Compile Include="BLL\Interfaces\IUserBLL.cs" />
     <Compile Include="BLL\NotificationsBLL.cs" />
