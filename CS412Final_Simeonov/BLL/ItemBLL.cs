@@ -13,6 +13,10 @@ namespace CS412Final_Simeonov.BLL
     {
         private readonly IItemRepository itemRepository;
         private readonly static IError error = new Error();
+
+        public ItemBLL() {
+            this.itemRepository = new ItemRepository();
+        }
         public bool AddNewItem(Item item)
         {
             try {
