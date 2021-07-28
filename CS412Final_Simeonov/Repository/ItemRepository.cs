@@ -15,6 +15,11 @@ namespace CS412Final_Simeonov.Repository
             return ItemDAL.GetItemById(id);
         }
 
+        public List<Item> getAllItems()
+        {
+            return ItemDAL.GetAllItems();
+        }
+
         public Boolean removeItem(Item item)
         {
             return ItemDAL.removeItem(item);
@@ -22,6 +27,12 @@ namespace CS412Final_Simeonov.Repository
 
         public void saveItem(Item item)
         {
+            ItemDAL.addNewItem(item);
+        }
+
+        public void updateItem(Item item)
+        {
+            //To implement
             ItemDAL.addNewItem(item);
         }
     }
