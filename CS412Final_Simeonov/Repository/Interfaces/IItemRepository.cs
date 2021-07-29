@@ -10,8 +10,10 @@ namespace CS412Final_Simeonov.Repository.Interfaces
     {
        void saveItem(Item item);
 
+        List<Item> getAllItems();
         Item findItemById(long id);
 
         Boolean removeItem(Item item);
+        void updateItem(Item item);
     }
 }

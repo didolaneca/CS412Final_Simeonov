@@ -100,7 +100,7 @@ namespace CS412Final_Simeonov.DAL
             }
             return allItems;
         }
-
+        //Delete
         public static Boolean removeItem(Item item)
         {
             string sql = "DELETE FROM `cs412`.`Item` WHERE Id = @id;";
@@ -127,7 +127,7 @@ namespace CS412Final_Simeonov.DAL
         }
 
         //ADD - Completed
-        public static void addNewItem(Item item)
+        public static void updaItem(Item item)
         {
             //INSERT INTO `cs412`.`Item` (`Id`, `Name`, `Description`, `Count`, `Price`) VALUES (NULL, 'Air Pods Pro', 'Air Pods Pro with charging case', 25, 229.99);
 
@@ -147,6 +147,38 @@ namespace CS412Final_Simeonov.DAL
                         
                         cmd.ExecuteNonQuery();
                         
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        error.Log(ex);
+                    }
+                }
+            }
+        }
+
+        //Update 
+        public static void updateItem(Item item)
+        {
+            //UPDATE `cs412`.`item` SET Name = 'Air Pods Pro', Description = 'Air Pods Pro with charging case', count = 30, price = 299.99 WHERE Id = 6;
+
+            string sql = @"UPDATE `cs412`.`item` SET Name = @name,
+                            Description = @description, count = @count, price = @price WHERE Id = @id;";
+            using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    try
+                    {
+                        cmd.Connection.Open();
+                        cmd.Parameters.AddWithValue("@name", item.Name);
+                        cmd.Parameters.AddWithValue("@description", item.Desciption);
+                        cmd.Parameters.AddWithValue("@count", item.Count);
+                        cmd.Parameters.AddWithValue("@price", item.Price);
+                        cmd.Parameters.AddWithValue("@id", item.Id);
+
+                        cmd.ExecuteNonQuery();
+
                     }
                     catch (Exception ex)
                     {
