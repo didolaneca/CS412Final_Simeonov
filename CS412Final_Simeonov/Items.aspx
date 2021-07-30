@@ -1,4 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Items.aspx.cs" Inherits="CS412Final_Simeonov.WebForm6" %>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ItemScript" runat="server">
+    <script src="Script/Items.js"></script>
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
         <div class="row">
@@ -71,3 +75,4 @@
         </div>
     </div>
 </asp:Content>
+
