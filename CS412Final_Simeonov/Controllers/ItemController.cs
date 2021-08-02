@@ -21,7 +21,7 @@ namespace CS412Final_Simeonov.Controllers
 
         [HttpGet]
         [Route("")]
-        public List<Item> GetAllItems() => kitemBLL.GetAllItems();
+        public List<Item> GetAllItems() => itemBLL.GetAllItems();
 
         [HttpGet]
         [Route("{id}")]
