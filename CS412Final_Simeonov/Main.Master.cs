@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CS412Final_Simeonov.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,10 @@ namespace CS412Final_Simeonov
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            User userLoggedIn = (User)Session["user"];
+            if (userLoggedIn == null) {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }
