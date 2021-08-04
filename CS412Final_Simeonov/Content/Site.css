@@ -151,3 +151,7 @@ input[type=text] {
 .authErrors {
     color: red;
 }
+
+.body-items {
+    margin-top: 30px;
+}
