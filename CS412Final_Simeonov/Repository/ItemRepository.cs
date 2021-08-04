@@ -27,12 +27,12 @@ namespace CS412Final_Simeonov.Repository
 
         public void saveItem(Item item)
         {
-            ItemDAL.updaItem(item);
+            ItemDAL.saveItem(item);
         }
 
         public void updateItem(Item item)
         {
-            ItemDAL.updaItem(item);
+            ItemDAL.updateItem(item);
         }
     }
 }

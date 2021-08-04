@@ -9,7 +9,7 @@ namespace CS412Final_Simeonov.Models
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public string Desciption { get; set; }
+        public string Description { get; set; }
 
         public double Count { get; set; }
         public double Price { get; set; }
