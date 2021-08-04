@@ -39,7 +39,7 @@ namespace CS412Final_Simeonov.DAL
                                     {
                                         Id = reader.GetInt64("Id"),
                                         Name = reader.GetNullString("name"),
-                                        Desciption = reader.GetNullString("Description"),
+                                        Description = reader.GetNullString("Description"),
                                         Count = reader.GetInt64("Count"),
                                         Price = reader.GetDouble("Price")
                                     };
@@ -83,7 +83,7 @@ namespace CS412Final_Simeonov.DAL
                                     {
                                         Id = reader.GetInt64("Id"),
                                         Name = reader.GetNullString("name"),
-                                        Desciption = reader.GetNullString("Description"),
+                                        Description = reader.GetNullString("Description"),
                                         Count = reader.GetInt64("Count"),
                                         Price = reader.GetDouble("Price")
                                     };
@@ -127,12 +127,12 @@ namespace CS412Final_Simeonov.DAL
         }
 
         //ADD - Completed
-        public static void updaItem(Item item)
+        public static void saveItem(Item item)
         {
             //INSERT INTO `cs412`.`Item` (`Id`, `Name`, `Description`, `Count`, `Price`) VALUES (NULL, 'Air Pods Pro', 'Air Pods Pro with charging case', 25, 229.99);
 
             string sql = @"INSERT INTO `cs412`.`Item` (`Id`, `Name`, `Description`, `Count`, `Price`) 
-                            VALUES (NULL, @name, @desciption, @count, @price);";
+                            VALUES (NULL, @name, @description, @count, @price);";
             using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
             {
                 using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -141,7 +141,7 @@ namespace CS412Final_Simeonov.DAL
                     {
                         cmd.Connection.Open();
                         cmd.Parameters.AddWithValue("@name", item.Name);
-                        cmd.Parameters.AddWithValue("@description", item.Desciption);
+                        cmd.Parameters.AddWithValue("@description", item.Description);
                         cmd.Parameters.AddWithValue("@count", item.Count);
                         cmd.Parameters.AddWithValue("@price", item.Price);
                         
@@ -172,7 +172,7 @@ namespace CS412Final_Simeonov.DAL
                     {
                         cmd.Connection.Open();
                         cmd.Parameters.AddWithValue("@name", item.Name);
-                        cmd.Parameters.AddWithValue("@description", item.Desciption);
+                        cmd.Parameters.AddWithValue("@description", item.Description);
                         cmd.Parameters.AddWithValue("@count", item.Count);
                         cmd.Parameters.AddWithValue("@price", item.Price);
                         cmd.Parameters.AddWithValue("@id", item.Id);
