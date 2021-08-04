@@ -274,7 +274,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Script\AddItem.js" />
-    <Content Include="Script\Items.js" />
     <Content Include="SignUp.aspx" />
     <Content Include="Contactus.aspx" />
     <Content Include="Navigation.aspx" />
