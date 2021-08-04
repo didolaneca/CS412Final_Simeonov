@@ -1,8 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Items.aspx.cs" Inherits="CS412Final_Simeonov.WebForm6" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ItemScript" runat="server">
-    <script src="Script/Items.js"></script>
-</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Nav" runat="server">
     <div class="pos-f-t">
         <nav class="navbar sticky-top justify-content-end navbar-light bg-ligh">
