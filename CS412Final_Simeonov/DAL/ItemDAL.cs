@@ -13,9 +13,9 @@ namespace CS412Final_Simeonov.DAL
 {
     public class ItemDAL
     {
-        
+
         private readonly static IError error = new Error();
-        
+
         //READ - Completed
         public static Item GetItemById(long id)
         {
@@ -127,12 +127,13 @@ namespace CS412Final_Simeonov.DAL
         }
 
         //ADD - Completed
-        public static void saveItem(Item item)
+        public static Item saveItem(Item item)
         {
             //INSERT INTO `cs412`.`Item` (`Id`, `Name`, `Description`, `Count`, `Price`) VALUES (NULL, 'Air Pods Pro', 'Air Pods Pro with charging case', 25, 229.99);
 
             string sql = @"INSERT INTO `cs412`.`Item` (`Id`, `Name`, `Description`, `Count`, `Price`) 
-                            VALUES (NULL, @name, @description, @count, @price);";
+                            VALUES (NULL, @name, @description, @count, @price);
+                          SELECT LAST_INSERT_ID();";
             using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
             {
                 using (MySqlCommand cmd = new MySqlCommand(sql, connection))
@@ -144,9 +145,18 @@ namespace CS412Final_Simeonov.DAL
                         cmd.Parameters.AddWithValue("@description", item.Description);
                         cmd.Parameters.AddWithValue("@count", item.Count);
                         cmd.Parameters.AddWithValue("@price", item.Price);
-                        
-                        cmd.ExecuteNonQuery();
-                        
+
+                        //cmd.ExecuteNonQuery();
+                        var o = cmd.ExecuteScalar().ToString();
+                        long id = 0;
+                        long.TryParse(o, out id);
+                        item.Id = id;
+                        if (item.Images != null) {
+                            foreach (Image img in item.Images)
+                            {
+                                img.ItemId = id;
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -155,6 +165,7 @@ namespace CS412Final_Simeonov.DAL
                     }
                 }
             }
+            return item;
         }
 
         //Update 
@@ -187,6 +198,39 @@ namespace CS412Final_Simeonov.DAL
                     }
                 }
             }
+        }
+
+        public static Image saveImage(Image image)
+        {
+            string sql = @"INSERT INTO `cs412`.`Image` (`Id`, `Image`, `Description`, `Item_Id`) 
+                            VALUES (NULL, @image, @description, @item_Id);
+                            SELECT LAST_INSERT_ID();";
+            using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    try
+                    {
+                        cmd.Connection.Open();
+                        cmd.Parameters.AddWithValue("@image", image.ImgSrc);
+                        cmd.Parameters.AddWithValue("@description", image.Description);
+                        cmd.Parameters.AddWithValue("@item_Id", image.ItemId);
+
+                        //cmd.ExecuteNonQuery();
+                        string obj = cmd.ExecuteScalar().ToString();
+                        long id = 0;
+                        long.TryParse(obj, out id);
+                        image.Id = id;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        error.Log(ex);
+                    }
+                }
+            }
+            return image;
         }
     }
 }
