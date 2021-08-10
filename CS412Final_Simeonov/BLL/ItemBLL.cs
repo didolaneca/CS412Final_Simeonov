@@ -20,7 +20,13 @@ namespace CS412Final_Simeonov.BLL
         public bool AddNewItem(Item item)
         {
             try {
-                itemRepository.saveItem(item);
+                Item savedItem = itemRepository.saveItem(item);
+                if (savedItem.Images != null) {
+                    foreach (Image img in savedItem.Images) {
+                        itemRepository.saveImage(img);
+                    }
+                    
+                }
             }
             catch (Exception ex) {
 
