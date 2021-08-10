@@ -17,6 +17,6 @@ namespace CS412Final_Simeonov.Models
 
 
         //To DO replace Sting with the class containingn the images.
-        public List<String> Images { get; set; }
+        public List<Image> Images { get; set; }
     }
 }

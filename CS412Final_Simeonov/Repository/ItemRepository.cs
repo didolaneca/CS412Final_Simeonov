@@ -25,9 +25,14 @@ namespace CS412Final_Simeonov.Repository
             return ItemDAL.removeItem(item);
         }
 
-        public void saveItem(Item item)
+        public Image saveImage(Image image)
         {
-            ItemDAL.saveItem(item);
+            return ItemDAL.saveImage(image);
+        }
+
+        public Item saveItem(Item item)
+        {
+            return ItemDAL.saveItem(item);
         }
 
         public void updateItem(Item item)
