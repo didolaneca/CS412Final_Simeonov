@@ -21,6 +21,9 @@
                         <a class="nav-link" href="Login.aspx">Log In</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="Items.aspx">Items</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="Contactus.aspx">Contact Us</a>
                     </li>
                     <li class="nav-item">
