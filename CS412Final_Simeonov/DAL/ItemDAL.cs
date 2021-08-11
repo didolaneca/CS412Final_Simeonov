@@ -87,6 +87,8 @@ namespace CS412Final_Simeonov.DAL
                                         Count = reader.GetInt64("Count"),
                                         Price = reader.GetDouble("Price")
                                     };
+                                    //Get the images for the item
+                                    item.Images = findImageByItemId(item);
                                     allItems.Add(item);
                                 }
                             }
@@ -231,6 +233,49 @@ namespace CS412Final_Simeonov.DAL
                 }
             }
             return image;
+        }
+
+        public static List<Image> findImageByItemId(Item item)
+        {
+            List<Image> images = new List<Image>();
+            Image image;
+            string sql = @"SELECT * FROM `cs412`.`Image` WHERE Item_id = @Id;";
+            using (MySqlConnection connection = new MySqlConnection(WebConfigurationManager.AppSettings["connString"]))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    try
+                    {
+                        cmd.Connection.Open();
+                        cmd.Parameters.AddWithValue("@id", item.Id);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+
+                                    image = new Image()
+                                    {
+                                        Id = reader.GetInt64("Id"),
+                                        ImgSrc = reader.GetNullString("Image"),
+                                        Description = reader.GetNullString("Description"),
+                                        ItemId = reader.GetInt64("Item_Id")
+                                    };
+                                    images.Add(image);
+                                }
+                            }
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        error.Log(ex);
+                    }
+                }
+            }
+            return images;
         }
     }
 }
