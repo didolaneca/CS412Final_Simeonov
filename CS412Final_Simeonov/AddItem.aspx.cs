@@ -19,5 +19,13 @@ namespace CS412Final_Simeonov
 
             }
         }
+
+        protected void LogOut(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.Clear();
+            Response.Cookies.Clear();
+            Response.Redirect("Login.aspx");
+        }
     }
 }

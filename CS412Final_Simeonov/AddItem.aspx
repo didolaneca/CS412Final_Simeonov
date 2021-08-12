@@ -29,6 +29,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Contactus.aspx">Add Item</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" runat="server" OnClick="LogOut" href="Login.aspx">Log Out</a>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -13,11 +13,20 @@ namespace CS412Final_Simeonov
         protected void Page_Load(object sender, EventArgs e)
         {
             User userLoggedIn = (User)Session["user"];
-            if (userLoggedIn != null) {
+            if (userLoggedIn != null)
+            {
                 userId.InnerHtml = " Welcome back, " + userLoggedIn.FirstName;
 
             }
-           
+
+        }
+
+        protected void LogOut(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.Clear();
+            Response.Cookies.Clear();
+            Response.Redirect("Login.aspx");
         }
     }
 }
