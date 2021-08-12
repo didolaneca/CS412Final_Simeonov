@@ -42,18 +42,19 @@ namespace CS412Final_Simeonov.DAL
                                         Email = reader.GetNullString("email"),
                                         FirstName = reader.GetNullString("first_name"),
                                         LastName = reader.GetNullString("last_name"),
+                                        Username = reader.GetNullString("Username"),
                                         Password = reader.GetNullString("password"),
                                         PhoneNumber = reader.GetNullString("phone_number"),
                                         TimeStamp = reader.GetNullString("create_time"),
                                         Address = new Address()
                                         {
-                                            Id = reader.GetInt64("AddressId"),
+                                            Id = reader.GetInt64("Address"),
                                             UserId = reader.GetInt64("USer_Id"),
                                             Street = reader.GetNullString("Street"),
                                             PostalCode = reader.GetNullString("Postal_code"),
                                             City = reader.GetNullString("City"),
                                             State = reader.GetNullString("State"),
-
+                                            Country = reader.GetNullString("Country")
                                         }
                                     };
                                 }
@@ -63,6 +64,7 @@ namespace CS412Final_Simeonov.DAL
                     catch (Exception ex)
                     {
                         error.Log(ex);
+                        return null;
                     }
                 }
             }

@@ -11,7 +11,7 @@ namespace CS412Final_Simeonov
 {
 
 
-    public partial class WebForm6
+    public partial class AddItem
     {
 
         /// <summary>

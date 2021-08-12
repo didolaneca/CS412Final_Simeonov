@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace CS412Final_Simeonov
 {
-    public partial class WebForm6 : System.Web.UI.Page
+    public partial class AddItem : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,7 +18,6 @@ namespace CS412Final_Simeonov
                 userId.InnerHtml = " Welcome back, " + userLoggedIn.FirstName;
 
             }
-
         }
 
         protected void LogOut(object sender, EventArgs e)

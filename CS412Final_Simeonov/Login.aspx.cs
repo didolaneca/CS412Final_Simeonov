@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CS412Final_Simeonov.BLL;
+using CS412Final_Simeonov.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,6 +21,7 @@ namespace CS412Final_Simeonov
 
         protected void submitButton_LoginClick(object sender, EventArgs e)
         {
+            UserBLL userBLL = new UserBLL();
             string usrname = username.Text,
                     passwrd = password.Text;
             List<String> errors = new List<string>();
@@ -29,6 +32,19 @@ namespace CS412Final_Simeonov
 
             if (string.IsNullOrWhiteSpace(passwrd)){
                 errors.Add("Password can not be empty");
+            }
+
+            if (errors.Count < 1) {
+                User user = userBLL.GetUserByUsernameAndPassword(usrname, passwrd);
+                if (user != null)
+                {
+                    //Set session
+                    Session["user"] = user;
+                    Response.Redirect("Items.aspx");
+                }
+                else {
+                    errors.Add("Wrong username or password");
+                }
             }
 
             if (errors.Count > 0) {

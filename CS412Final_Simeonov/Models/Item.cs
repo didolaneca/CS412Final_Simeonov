@@ -9,7 +9,7 @@ namespace CS412Final_Simeonov.Models
     {
         public long Id { get; set; }
         public string Name { get; set; }
-        public string Desciption { get; set; }
+        public string Description { get; set; }
 
         public double Count { get; set; }
         public double Price { get; set; }
@@ -17,6 +17,6 @@ namespace CS412Final_Simeonov.Models
 
 
         //To DO replace Sting with the class containingn the images.
-        public List<String> Images { get; set; }
+        public List<Image> Images { get; set; }
     }
 }

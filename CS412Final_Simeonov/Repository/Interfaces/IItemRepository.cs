@@ -8,12 +8,13 @@ namespace CS412Final_Simeonov.Repository.Interfaces
 {
     public interface IItemRepository
     {
-       void saveItem(Item item);
+       Item saveItem(Item item);
 
         List<Item> getAllItems();
         Item findItemById(long id);
 
         Boolean removeItem(Item item);
         void updateItem(Item item);
+        Image saveImage(Image image);
     }
 }

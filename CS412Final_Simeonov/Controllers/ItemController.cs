@@ -20,10 +20,8 @@ namespace CS412Final_Simeonov.Controllers
         }
 
         [HttpGet]
-        public List<Item> GetAllItems()
-        {
-            return itemBLL.GetAllItems();
-        }
+        [Route("")]
+        public List<Item> GetAllItems() => itemBLL.GetAllItems();
 
         [HttpGet]
         [Route("{id}")]

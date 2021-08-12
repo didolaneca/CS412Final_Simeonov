@@ -15,6 +15,15 @@ namespace CS412Final_Simeonov
     {
 
         /// <summary>
+        /// userId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userId;
+
+        /// <summary>
         /// firstname control.
         /// </summary>
         /// <remarks>
@@ -58,5 +67,23 @@ namespace CS412Final_Simeonov
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button submitButton;
+
+        /// <summary>
+        /// contactUsErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel contactUsErrors;
+
+        /// <summary>
+        /// errorsList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorsList;
     }
 }
